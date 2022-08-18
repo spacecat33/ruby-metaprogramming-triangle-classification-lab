@@ -1,8 +1,6 @@
 class Triangle
 
-    attr_accessor :sides
-  
-  @sides = []
+  attr_accessor :sides
   
   def initialize (side1, side2, side3)
     @sides = [side1, side2, side3]
@@ -13,7 +11,7 @@ class Triangle
   
   def kind      
     if @sides.any?{|side| side <= 0} || ((@sides[0] + @sides[1]) <= @sides[2])
-      raise TriangleError
+      raise TriangleError    #Because the sum of the lengths of any two sides of a triangle always exceeds the length of the third side. This is a principle known as the triangle inequality. Further, each side must be larger than 0.
     elsif @sides.uniq.length == 1
       :equilateral
     elsif @sides.uniq.length == 2
